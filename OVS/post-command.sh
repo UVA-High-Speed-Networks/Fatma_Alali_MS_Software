@@ -1,17 +1,21 @@
 # This script configure your virtual switch
 # by adding IP address to the OVS ports
-# The number after router (00000013468d3dbd) should be changed
-# based on the number assigned to your switch
-# you can find this number after running OVS (run-OVS.sh)
 
-curl -X PUT -d '"tcp:127.0.0.1:6632"' http://localhost:8080/v1.0/conf/switches/00000013468d3dbd/ovsdb_addr
+# This script should be executed after running ryu (run-ryu.sh)
+# The variable called "sw_id" represent the switch id assigned for your OVS
+# when running ryu you can find the switch id
+
+sw_id=00000013468d3dbd
+
+
+curl -X PUT -d '"tcp:127.0.0.1:6632"' http://localhost:8080/v1.0/conf/switches/$sw_id/ovsdb_addr
 
 # The first IP address will be assigned to the first interface you added to OVS, e.g, if eth3 was the first you added to OVS
 # then eth3 is considered port1 in OVS
-curl -X POST -d '{"address":"10.10.1.2/24"}' http://127.0.0.1:8080/router/00000013468d3dbd
-curl -X POST -d '{"address":"10.10.2.2/24"}' http://127.0.0.1:8080/router/00000013468d3dbd
-curl -X POST -d '{"address":"10.10.3.2/24"}' http://127.0.0.1:8080/router/00000013468d3dbd
-curl -X POST -d '{"address":"10.10.4.2/24"}' http://127.0.0.1:8080/router/00000013468d3dbd
+curl -X POST -d '{"address":"10.10.1.2/24"}' http://127.0.0.1:8080/router/$sw_id
+curl -X POST -d '{"address":"10.10.2.2/24"}' http://127.0.0.1:8080/router/$sw_id
+curl -X POST -d '{"address":"10.10.3.2/24"}' http://127.0.0.1:8080/router/$sw_id
+curl -X POST -d '{"address":"10.10.4.2/24"}' http://127.0.0.1:8080/router/$sw_id
 				
 # I've noticed that in the forwarding table there is always one missing entry for one of the ports
 # so this command is used to add the entry for this port
