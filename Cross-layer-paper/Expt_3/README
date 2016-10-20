@@ -1,0 +1,9 @@
+This experiment requires three different hosts
+
+The script called "run-expt3.sh" is used to runthe experimet.
+This script should be executed from the local machine
+
+The scripts atalpha-flow/start-alpha-flow.sh  and beta-flow/start-beta-flow.sh 
+should be placed in two diferent hosts to start
+alpha and beta flows. Both flows are destinated to the same end-host.
+
