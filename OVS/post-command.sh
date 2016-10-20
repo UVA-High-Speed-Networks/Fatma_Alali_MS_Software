@@ -1,5 +1,5 @@
 # This script configure your virtual switch
-# by adding IP address to the OVS ports
+# by adding IP addresses to the OVS ports
 
 # This script should be executed after running ryu (run-ryu.sh)
 # The variable called "sw_id" represent the switch id assigned for your OVS
