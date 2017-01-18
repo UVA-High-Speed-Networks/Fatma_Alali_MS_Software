@@ -36,7 +36,7 @@ main_log_dir=/users/fha6np/expt1-3-5-2016/vary-RTT-fcwnd/$tbf_rate_unit
 sudo echo ctcp > /proc/sys/net/ipv4/tcp_congestion_control
 sudo echo 100 > /sys/module/tcp_ctcp/parameters/scale
 
-for RTT in $1
+for RTT in rtt
 do
         temp=`echo $RTT | rev | cut -c 3- |rev`
         rtt=$(bc <<< "scale=8;($temp+$path_orginal_RTT)/1000") #RTT in seconds
