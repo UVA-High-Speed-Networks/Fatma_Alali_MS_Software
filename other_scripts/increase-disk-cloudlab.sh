@@ -42,3 +42,8 @@ sudo mount -a
 
 #to check where your directory is mounted now:
 df -P $your_dir_name | tail -1 | cut -d' ' -f 1
+
+# From cloudlab mailing list, intead of doing all the previous steps only run the following command:
+# sudo /usr/testbed/bin/mkextrafs /mnt 
+# source: https://groups.google.com/forum/#!topic/cloudlab-users/InkAV_eZOxc
+# Then mount your directory to /mnt
