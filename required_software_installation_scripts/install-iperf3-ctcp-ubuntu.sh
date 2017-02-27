@@ -1,6 +1,7 @@
-sudo apt-get -y install wireshark
-
 sudo apt-get update
+
+#install tshark
+sudo apt-get -y install tshark
 
 #install ctcp
 wget http://www.ece.virginia.edu/cheetah/software/ctcp/CTCP.tar.gz
