@@ -1,6 +1,7 @@
 # This script allows borrowing between classes
 
 IF=eth1
+limit=20mb
 
 sudo tc qdisc del dev $IF root
 
